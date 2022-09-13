@@ -11,13 +11,20 @@ the **linear** kernel works fine if the dataset is linearly separable.
 
 First, I normalize the data and split it to train and test sets, using sklearn library:
 
-from sklearn.model_selection import **train_test_split**
-
-from sklearn.preprocessing import **StandardScaler**
+```ruby
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+```
 
 <h2> &nbsp;Part B</h2>
 
-I implement different SVM models (using SVC.fit), by fixing the kernel as **linear**, and changing the value of **C**. The results are as follows:
+I implement different SVM models (using SVC.fit), by fixing the kernel as **linear**, and changing the value of **C**.
+
+```ruby
+svm_clf = SVC(kernel="linear", C)
+```
+
+The results are as follows:
 
 <h3> &nbsp;kernel = linear</h3>
 
@@ -73,7 +80,11 @@ As it can be seen from the above implementations, the accuracy of the **linear k
 
 Now, I implement a **grid search** algorithm to optimize my SVM model weights, using the sklearn library as below:
 
+```ruby
 from sklearn.model_selection import GridSearchCV
+parameters = {'kernel': ['poly'], 'degree': [2, 3, 4], 'C':[1, 10, 100, 500], 'gamma':[0.01, 0.03, 0.05]}
+clf = GridSearchCV(svc, parameters)
+```
 
 <h4> &nbsp;Grid Search on Linear kernel:</h4>
 
